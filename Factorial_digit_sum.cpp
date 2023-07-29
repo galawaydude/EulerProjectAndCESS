@@ -8,48 +8,41 @@ void reverse(vector<int> &ar, int s, int e){
     swap(ar[s], ar[e]);
     return reverse(ar, s+1, e-1);
 }
-vector<int> product(vector<int> &ar, int n){
+vector<int> product(vector<int> &ar, int n) {
     int carry = 0;
     vector<int> temp;
-    for (int i = ar.size()-1; i>=0; i--){
+    for (int i = ar.size() - 1; i >= 0; i--) {
         int prod = n * ar[i] + carry;
-        if (prod/10 != 0 && i != 0){
-            carry = prod/10;
-            temp.push_back(prod%10);
-        }
-        if (prod/10 !=0 && i==0){
-            while (prod>0){
-                temp.push_back(prod%10);
-                prod = prod/10;
-            }
-        }
-        if (prod/10 == 0 ){
-            temp.push_back(prod);
-        }
+        if (prod / 10 != 0 && i != 0) {
+            carry = prod / 10;
+            temp.push_back(prod % 10);
+        } else {
+            temp.push_back(prod % 10);
+            carry = prod / 10;         }
     }
-    if (temp[ar.size()-1]== 0){
-        temp.pop_back();
+    while (carry > 0) {
+        temp.push_back(carry % 10);
+        carry /= 10;
     }
-    reverse(temp, 0, temp.size()-1);
+    reverse(temp, 0, temp.size() - 1);
     return temp;
+}
+int sum_of_digit_fact(vector<int> &ar){
+    int sum = 0;
+    for (int i = 0; i < ar.size(); i++)
+    {
+        sum = sum+ar[i];
+    }
+    return sum;
 }
 int main(){
     int n;
     cin>>n;
-    vector<int> ar;
-    for (int i = 0; i < n; i++)
-    {
-        int a;
-        cin>>a;
-        ar.push_back(a);
+    vector<int> ar1;
+    ar1.push_back(1);
+    for (int i = 1; i <= n; i++){
+        vector<int> temp = product(ar1, i);
+        ar1 = temp;
     }
-    int a;
-    cin>>a;
-    vector<int> temp = product(ar, a);
-
-    for (int i = 0; i<temp.size(); i++)
-    {
-        cout<<temp[i]<<" ";
-    }
-    
+    cout<<sum_of_digit_fact(ar1);
 }
