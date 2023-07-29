@@ -16,13 +16,15 @@ vector<int> product(vector<int> &ar, int n) {
         if (prod / 10 != 0 && i != 0) {
             carry = prod / 10;
             temp.push_back(prod % 10);
-        } else {
-            temp.push_back(prod % 10);
-            carry = prod / 10;         }
+        } 
+        else{
+            temp.push_back(prod%10);
+            carry = prod/10;
+        }
     }
     while (carry > 0) {
         temp.push_back(carry % 10);
-        carry /= 10;
+        carry = carry/10;
     }
     reverse(temp, 0, temp.size() - 1);
     return temp;
