@@ -1,6 +1,13 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+string toString (vector<int> &ar){
+    string number;
+    for (int i = 0; i < ar.size(); i++){
+        number[i]=ar[i];
+    }
+    return number;
+}
 void reverse(vector<int> &ar, int s, int e){
     if (s>=e){
         return;
@@ -51,5 +58,5 @@ int main(){
     {
     cout<<ar[i]<<" ";
     }
-    cout<<power_digit_sum(ar);  
+    cout<<toString(ar);
 }
