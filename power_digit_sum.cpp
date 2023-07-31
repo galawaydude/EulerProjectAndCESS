@@ -29,7 +29,7 @@ vector<int> product(vector<int> &ar, int n) {
     reverse(temp, 0, temp.size() - 1);
     return temp;
 }
-int sum_of_digit_fact(vector<int> &ar){
+int power_digit_sum(vector<int> &ar){
     int sum = 0;
     for (int i = 0; i < ar.size(); i++)
     {
@@ -38,14 +38,18 @@ int sum_of_digit_fact(vector<int> &ar){
     return sum;
 }
 int main(){
-    int n;
+     int n;
     cin>>n;
-    vector<int> ar1;
-    ar1.push_back(1);
-    for (int i = 1; i <= n; i++){
-        vector<int> temp = product(ar1, i);
-        ar1 = temp;
+    vector<int> ar;
+    ar.push_back(1);
+    for (int i = 1; i <= n; i++)
+    {
+        vector<int> temp = product(ar, 2);
+        ar = temp;
     }
-    cout<<sum_of_digit_fact(ar1);
-    //cout<<ar1.size();
+    for (int i = 0; i < ar.size(); i++)
+    {
+    cout<<ar[i]<<" ";
+    }
+    cout<<power_digit_sum(ar);  
 }
