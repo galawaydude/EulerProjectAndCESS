@@ -46,6 +46,13 @@ int main(){
         vector<int> temp = product(ar1, i);
         ar1 = temp;
     }
-    cout<< sum_of_digit_fact(ar1);
-    //cout<<ar1.size();
+    for (int i = 0; i < ar1.size(); i++)
+    {
+        cout<<ar1[i];
+    }
+
+    cout<<endl;
+    
+    cout<< sum_of_digit_fact(ar1)<<"\n";
+    cout<<ar1.size();
 }
