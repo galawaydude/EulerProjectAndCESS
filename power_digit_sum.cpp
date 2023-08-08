@@ -47,5 +47,9 @@ int main(){
         vector<int> temp = product(ar, 2);
         ar = temp;
     }
-   cout<<power_digit_sum(ar);
+//    cout<<power_digit_sum(ar);
+for (int i = 0; i < ar.size(); i++)
+{
+    cout<<ar[i];
+}
 }
