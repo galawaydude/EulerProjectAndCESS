@@ -1,4 +1,4 @@
-# Euler_ProjectAndCSES
+# EulerProjectAndCSES
 
 
 This repository contains C++ implementations of solutions for various problems taken from Project Euler and CSES problem sheet
